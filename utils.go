@@ -15,6 +15,9 @@ func trimHtml(src string) string {
 	//去除SCRIPT
 	re, _ = regexp.Compile("\\<script[\\S\\s]+?\\</script\\>")
 	src = re.ReplaceAllString(src, "")
+	//去除A
+	re, _ = regexp.Compile("\\<a[\\S\\s]+?\\</a\\>")
+	src = re.ReplaceAllString(src, "")
 	//去除所有尖括号内的HTML代码，并换成换行符
 	re, _ = regexp.Compile("\\<[\\S\\s]+?\\>")
 	src = re.ReplaceAllString(src, "\n")
